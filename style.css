@@ -1,0 +1,180 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', 'Microsoft YaHei', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.game-container {
+    position: relative;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.game-header h1 {
+    font-size: 28px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.score-board {
+    display: flex;
+    gap: 20px;
+}
+
+.score-item {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 8px 16px;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+#gameCanvas {
+    display: block;
+    background: #000;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.game-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    z-index: 10;
+}
+
+.game-overlay.hidden {
+    display: none;
+}
+
+.overlay-content {
+    text-align: center;
+    color: white;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+}
+
+.overlay-content h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.overlay-content p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+.game-button {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.game-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.game-button:active {
+    transform: translateY(0);
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 15px;
+    color: white;
+    font-size: 14px;
+}
+
+.control-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+kbd {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* 对话框 */
+.dialog-box {
+    margin-top: 15px;
+    background: rgba(0, 0, 0, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 12px;
+    color: #fff;
+    width: 100%;
+    max-width: 820px;
+}
+
+.dialog-title {
+    font-weight: bold;
+    margin-bottom: 8px;
+    opacity: 0.9;
+}
+
+.dialog-lines {
+    font-size: 14px;
+    line-height: 1.5;
+    max-height: 110px;
+    overflow: hidden;
+    opacity: 0.95;
+}
+
+.dialog-line {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+

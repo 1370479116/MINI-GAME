@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>飞机大战 - 经典街机游戏</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="game-header">
+            <h1>✈️ 飞机大战</h1>
+            <div class="score-board">
+                <div class="score-item">
+                    <span>得分:</span>
+                    <span id="score">0</span>
+                </div>
+                <div class="score-item">
+                    <span>生命:</span>
+                    <span id="lives">20</span>
+                </div>
+                <div class="score-item">
+                    <span>关卡:</span>
+                    <span id="level">1</span>
+                </div>
+                <div class="score-item" id="powerupInfo" style="display: none;">
+                    <span id="powerupText"></span>
+                </div>
+            </div>
+        </div>
+        
+        <canvas id="gameCanvas"></canvas>
+        
+        <div class="game-overlay" id="gameOverlay">
+            <div class="overlay-content">
+                <h2 id="overlayTitle">游戏开始</h2>
+                <p id="overlayMessage">使用方向键移动，空格键发射子弹<br>击败敌机有概率获得道具！</p>
+                <button id="startButton" class="game-button">开始游戏</button>
+                <button id="restartButton" class="game-button" style="display: none;">重新开始</button>
+            </div>
+        </div>
+        
+        <div class="controls">
+            <div class="control-item">
+                <kbd>←</kbd><kbd>→</kbd><kbd>↑</kbd><kbd>↓</kbd> 移动
+            </div>
+            <div class="control-item">
+                <kbd>空格</kbd> 发射子弹
+            </div>
+        </div>
+
+        <!-- 对话框（游戏画面之外） -->
+        <div class="dialog-box" id="dialogBox">
+            <div class="dialog-title">战斗日志</div>
+            <div class="dialog-lines" id="dialogLines"></div>
+        </div>
+    </div>
+    
+    <script src="game.js"></script>
+</body>
+</html>
+
