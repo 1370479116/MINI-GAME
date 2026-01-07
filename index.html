@@ -1,62 +1,63 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>飞机大战 - 经典街机游戏</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Space War - 太空飞机大战</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div class="game-container">
-        <div class="game-header">
-            <h1>✈️ 飞机大战</h1>
-            <div class="score-board">
-                <div class="score-item">
-                    <span>得分:</span>
-                    <span id="score">0</span>
+  <div class="app">
+    <header class="topbar">
+      <div class="title">Space War</div>
+      <div class="stats">
+        <div class="stat">得分 <span id="uiScore">0</span></div>
+        <div class="stat">生命 <span id="uiHp">100</span></div>
+        <div class="stat">子弹 <span id="uiBullets">1</span>/10</div>
+        <div class="stat">导弹 <span id="uiMissiles">0</span>/3</div>
                 </div>
-                <div class="score-item">
-                    <span>生命:</span>
-                    <span id="lives">20</span>
-                </div>
-                <div class="score-item">
-                    <span>关卡:</span>
-                    <span id="level">1</span>
-                </div>
-                <div class="score-item" id="powerupInfo" style="display: none;">
-                    <span id="powerupText"></span>
-                </div>
-            </div>
-        </div>
-        
-        <canvas id="gameCanvas"></canvas>
-        
-        <div class="game-overlay" id="gameOverlay">
-            <div class="overlay-content">
-                <h2 id="overlayTitle">游戏开始</h2>
-                <p id="overlayMessage">使用方向键移动，空格键发射子弹<br>击败敌机有概率获得道具！</p>
-                <button id="startButton" class="game-button">开始游戏</button>
-                <button id="restartButton" class="game-button" style="display: none;">重新开始</button>
-            </div>
-        </div>
-        
-        <div class="controls">
-            <div class="control-item">
-                <kbd>←</kbd><kbd>→</kbd><kbd>↑</kbd><kbd>↓</kbd> 移动
-            </div>
-            <div class="control-item">
-                <kbd>空格</kbd> 发射子弹
-            </div>
-        </div>
+    </header>
 
-        <!-- 对话框（游戏画面之外） -->
-        <div class="dialog-box" id="dialogBox">
-            <div class="dialog-title">战斗日志</div>
-            <div class="dialog-lines" id="dialogLines"></div>
+    <main class="stage">
+      <canvas id="game" width="900" height="600"></canvas>
+        
+      <div class="overlay" id="overlay">
+        <div class="panel">
+          <h1 id="ovTitle">Space War</h1>
+          <p id="ovText">点击开始后：\n- 左侧方向键移动（也支持键盘方向键）\n- 右侧“攻击”持续射击（也支持空格）\n- Boss 超过 1 分钟出现</p>
+          <div class="ovBtns">
+            <button id="btnStart">开始游戏</button>
+            <button id="btnRestart" class="ghost" style="display:none;">重新开始</button>
+            </div>
         </div>
+      </div>
+    </main>
+        
+    <footer class="hud">
+      <section class="hudBox left">
+                <div class="dpad">
+          <button class="pad" data-key="ArrowUp">↑</button>
+          <div class="mid">
+            <button class="pad" data-key="ArrowLeft">←</button>
+            <button class="pad" data-key="ArrowDown">↓</button>
+            <button class="pad" data-key="ArrowRight">→</button>
+            </div>
+        </div>
+      </section>
+
+      <section class="hudBox center">
+        <div class="statusTitle">状态通知栏</div>
+        <div class="statusLine" id="statusLine">准备就绪</div>
+        <div class="statusSub" id="statusSub">等待开始…</div>
+      </section>
+
+      <section class="hudBox right">
+        <button id="btnAttack" class="action">攻击</button>
+        <button id="btnBomber" class="action alt" disabled>召唤轰炸机</button>
+      </section>
+    </footer>
     </div>
     
-    <script src="game.js"></script>
+  <script src="game.js" defer></script>
 </body>
 </html>
-
